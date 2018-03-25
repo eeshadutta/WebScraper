@@ -46,7 +46,7 @@ def amazon_scraper():
                     Authors[ind] = author.string
 
             for price in data.findAll('span', {'class': 'p13n-sc-price'}):
-                Prices[ind] = price.string
+                Prices[ind] = price.text.replace(',', '')
 
             for ratings in data.findAll('a', {'class': 'a-size-small '
                                                        'a-link-normal'}):
@@ -77,10 +77,10 @@ try:
 except:
     os.system("mkdir output")
     Output_File = open('./output/in_book.csv', 'w')
-Output_File.write("Name, URL, Author, Price, Number of Ratings, "
+Output_File.write("Name; URL, Author; Price; Number of Ratings; "
                   "Average Rating\n")
 for i in range(Num_Books):
-    Output_File.write(str(Names[i]) + "," + str(URLs[i]) + "," +
-                      str(Authors[i]) + "," + str(Prices[i]) + "," +
-                      str(Num_Ratings[i]) + "," + str(Avg_Ratings[i]) + "\n")
+    Output_File.write(str(Names[i]) + ";" + str(URLs[i]) + ";" +
+                      str(Authors[i]) + ";" + str(Prices[i]) + ";" +
+                      str(Num_Ratings[i]) + ";" + str(Avg_Ratings[i]) + "\n")
 Output_File.close()

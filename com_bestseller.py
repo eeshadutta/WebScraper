@@ -79,10 +79,10 @@ try:
 except:
     os.system("mkdir output")
     Output_File = open('./output/com_book.csv', 'w')
-Output_File.write("Name, URL, Author, Price, Number of Ratings, "
+Output_File.write("Name; URL; Author; Price; Number of Ratings; "
                   "Average Rating\n")
 for i in range(Num_Books):
-    Output_File.write(str(Names[i]) + "," + str(URLs[i]) + "," +
-                      str(Authors[i]) + "," + str(Prices[i]) + "," +
-                      str(Num_Ratings[i]) + "," + str(Avg_Ratings[i]) + "\n")
+    Output_File.write(str(Names[i]) + ";" + str(URLs[i]) + ";" +
+                      str(Authors[i]) + ";" + str(Prices[i]) + ";" +
+                      str(Num_Ratings[i]) + ";" + str(Avg_Ratings[i]) + "\n")
 Output_File.close()
